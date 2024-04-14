@@ -1,19 +1,21 @@
 package edu.upc.dsa.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Piloto {
-    List<String> reservas;
+    List<Reserva> reservas;
     String idPiloto;
     String nombre;
     String apellidos;
-    int horas;
+    int horasVuelo;
 
-    public Piloto(String identificador,String nombre,String apellidos, int horas){
+    public Piloto(String identificador, String nombre, String apellidos){
         this.idPiloto=identificador;
         this.nombre=nombre;
         this.apellidos=apellidos;
-        this.horas=horas;
+        this.horasVuelo=0;
+        this.reservas=new ArrayList<>();
     }
     public String getIdPiloto() {
         return idPiloto;
@@ -33,11 +35,20 @@ public class Piloto {
     public void setApellidos(String apellidos){
         this.apellidos = apellidos;
     }
-    public int getHoras(){
-        return horas;
+    public int getHorasVuelo(){
+        return horasVuelo;
     }
-    public void setHoras(int horas){
-        this.horas=horas;
+    public void setHorasVuelo(int horasVuelo){
+        this.horasVuelo = horasVuelo;
+    }
+    public List<Reserva> getReservas(){
+        return reservas;
+    }
+    public void setReservas(List<Reserva> reservas){
+        this.reservas = reservas;
+    }
+    public void añadirReserva(Reserva reserva){
+        this.reservas.add(reserva);
     }
 
     public static Piloto buscarPilotoPorId(List<Piloto> pilotos, String  pilotoId){

@@ -1,21 +1,25 @@
 package edu.upc.dsa.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Dron {
-    List<String> reservas;
+    List<Reserva> reservas;
     String idDron;
     String nombre;
     String fabricante;
     String modelo;
-    int horas;
+    int horasVuelo;
+    boolean mantenimiento;
 
-    public Dron(String identificador,String nombre,String fabricante, String modelo, int horas){
+    public Dron(String identificador, String nombre, String fabricante, String modelo){
         this.idDron=identificador;
         this.nombre=nombre;
         this.fabricante=fabricante;
         this.modelo=modelo;
-        this.horas=horas;
+        this.horasVuelo=0;
+        this.mantenimiento=false;
+        this.reservas=new ArrayList<>();
     }
     public String getIdDron() {
         return idDron;
@@ -42,11 +46,26 @@ public class Dron {
     public void setModelo(String modelo){
         this.modelo = modelo;
     }
-    public int getHoras(){
-        return horas;
+    public int getHorasVuelo(){
+        return horasVuelo;
     }
-    public void setHoras(int horas){
-        this.horas=horas;
+    public void setHorasVuelo(int horasVuelo){
+        this.horasVuelo = horasVuelo;
+    }
+    public boolean isMantenimiento(){
+        return mantenimiento;
+    }
+    public void setMantenimiento(boolean mantenimiento){
+        this.mantenimiento = mantenimiento;
+    }
+    public List<Reserva> getReservas(){
+        return reservas;
+    }
+    public void setReservas(List<Reserva> reservas){
+        this.reservas = reservas;
+    }
+    public void añadirReserva(Reserva reserva){
+        this.reservas.add(reserva);
     }
 
     public static Dron buscarDronPorId(List<Dron> drones, String  dronId){

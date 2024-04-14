@@ -13,6 +13,7 @@ public class Reserva {
     public Reserva(String idDron, Date fecha, int duracion, String posicionInicio, String posicionDestino, String idPiloto){
         this.idDron = idDron;
         this.fecha = fecha;
+        this.duracion = duracion;
         this.posicionInicio = posicionInicio;
         this.posicionDestino = posicionDestino;
         this.idPiloto = idPiloto;
@@ -21,8 +22,14 @@ public class Reserva {
     public String getDronId(){
         return idDron;
     }
+    public void setIdDron(String idDron){
+        this.idDron = idDron;
+    }
     public String getPilotoId(){
         return idPiloto;
+    }
+    public void setPilotoId(String idPiloto){
+        this.idPiloto = idPiloto;
     }
     public Date getFecha(){
         return fecha;
